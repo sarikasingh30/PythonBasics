@@ -1,22 +1,30 @@
-# Todo App
+# Todo App ................................................................................
 
 tasks=[]
 while True:
+    # MENU PROVIDED............................
     x=input("............\n MENU: \n 1. Add Tasks \n 2. View Tasks \n 3. Search task \n 4. Edit task \n 5. Delete task \n 6. Quit \n Entr your Choice: ")
-
+   
+    #.......................................
+    # Add the Task
     if(x=="1"):
+
         ans=input("Enter the Task: ")
         bal={}
         bal["title"]=ans
         bal["status"]=False
         tasks.append(bal)
+
+    #.......................................
+    # View the Tasks
     elif(x=='2'):
         print("Tasks: ")
         for index,task in enumerate(tasks,start=1):
             print(f"{index} {task}")
-    
+
+    #.......................................
+    # Search the Task
     elif(x=="3"):
-         # Searching Functionality 
         ans=input("Choose between title and status: ")
         if(ans=="status"):
             statusValforSearch=bool(input("Select the Status: "))
@@ -36,7 +44,8 @@ while True:
         else:
             print("Invalid Choice...........")
 
-
+    #.......................................
+    # Edit the Task
     elif(x=='4'):
         for index,task in enumerate(tasks,start=1):
             print(f"{index} {task}")
@@ -53,7 +62,8 @@ while True:
                     tasks[val-1]["status"]= not(tasks[val-1]["status"])
         else:
             print("Invalid Index.....")
-
+    #.......................................
+    # Delete the Task
     elif(x=='5'):
         for index,task in enumerate(tasks,start=1):
             print(f"{index} {task}")
@@ -63,7 +73,11 @@ while True:
             print(f"Deleted Task: {deletedTask}")
         else:
             print("Invalid Index.....")
+    #.......................................
+    # Exit 
     elif(x=='6'):
         break;
+    
+    #.......................................
     else:
         print("Invalid Choice...")
